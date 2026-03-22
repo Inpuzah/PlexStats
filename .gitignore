@@ -16,3 +16,6 @@ pnpm-debug.log*
 # Node (if added later)
 node_modules/
 dist/
+.next/
+coverage/
+*.tsbuildinfo
