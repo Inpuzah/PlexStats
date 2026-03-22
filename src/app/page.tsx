@@ -1,97 +1,168 @@
+type BottomSection = {
+  heading: string;
+  body: string;
+  theme: string;
+  reverse: boolean;
+  accent?: 'navy';
+  alignRight?: boolean;
+  discord?: boolean;
+};
+
+const bottomSections: BottomSection[] = [
+  {
+    heading: 'Player Profiles',
+    body: 'Track player performance, progression, and game-by-game trends in one place.',
+    theme: 'bg-white text-zinc-800',
+    reverse: false,
+    accent: 'navy',
+    alignRight: true
+  },
+  {
+    heading: 'Game Stats',
+    body: 'Analyze wins, losses, K/D style metrics, and historical snapshots over time.',
+    theme: 'bg-[#435582] text-white',
+    reverse: true
+  },
+  {
+    heading: 'Leaderboards',
+    body: 'Browse leaderboard history and compare players as soon as API data is available.',
+    theme: 'bg-white text-zinc-800',
+    reverse: false,
+    accent: 'navy',
+    alignRight: true
+  },
+  {
+    heading: 'Discord Bot',
+    body: 'PlexStats will provide a free, feature-complete Discord bot that can be added anywhere for an easy way to check stats anywhere you use Discord.',
+    theme: 'bg-[#7289DA] text-white',
+    reverse: true,
+    discord: true
+  }
+];
+
 export default function HomePage() {
-  const sections = ['Player Profiles', 'Game Stats', 'Leaderboards'];
-
   return (
-    <div className="min-h-screen text-black relative overflow-hidden bg-white">
-      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,black_1px,transparent_0)] bg-[size:24px_24px]" />
+    <div className="relative min-h-screen overflow-hidden bg-white text-black">
+      <div className="animated-grid absolute inset-0 opacity-35" />
+      <div className="animated-lines absolute inset-0 opacity-20" />
 
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-orange-200/40 rounded-full blur-3xl" />
-      <div className="absolute top-[30%] -right-40 w-[400px] h-[400px] bg-orange-300/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-[-150px] left-[20%] w-[450px] h-[450px] bg-orange-200/30 rounded-full blur-3xl" />
+      <div className="sticky top-0 relative z-30 border-b border-orange-200/80 bg-white/80 px-6 py-4 backdrop-blur-xl">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
+          <h1 className="text-xl font-bold tracking-tight text-orange-600">PlexStats</h1>
 
-      <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(135deg,black_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-      <div className="relative z-10 border-b border-orange-200 px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur sticky top-0">
-        <h1 className="text-xl font-bold tracking-tight text-orange-600">Plexlytics</h1>
-
-        <div className="relative group">
-          <input
-            placeholder="Search Mineplex player..."
-            readOnly
-            aria-disabled="true"
-            className="bg-white border border-orange-200 rounded-lg px-4 py-2 w-64 cursor-not-allowed focus:outline-none transition"
-          />
-          <div className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-            Coming soon
+          <div className="group relative">
+            <input
+              placeholder="Search Mineplex player..."
+              readOnly
+              aria-disabled="true"
+              className="w-64 cursor-not-allowed rounded-lg border border-orange-200 bg-white/90 px-4 py-2 shadow-sm"
+            />
+            <div className="pointer-events-none absolute left-1/2 top-full z-40 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+              Coming soon
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="relative z-10">
-        <div className="max-w-6xl mx-auto px-6 py-24 text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">plexstats</h1>
+      <section className="hero-clip relative z-10">
+        <div className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center text-white">
+          <h1 className="hero-title mb-6 text-4xl font-extrabold tracking-tight md:text-6xl">
+            <span>PLEXSTATS</span>
+          </h1>
 
-          <p className="text-lg text-gray-600 mb-6">Mineplex Stats Tracking Platform</p>
-
-          <p className="text-gray-500 mb-6 max-w-xl mx-auto">
-            Plexlytics is an up-coming stats tracker using Mineplex APIs. Currently in development and
+          <p className="reveal-up max-w-xl text-orange-50/95" style={{ animationDelay: '300ms' }}>
+            PlexStats is an up-coming stats tracker using Mineplex APIs. Currently in development and
             waiting for API information/documentation from Mineplex.
           </p>
 
-          <p className="text-gray-500 mb-10">
+          <p className="reveal-up mt-8 text-orange-100" style={{ animationDelay: '420ms' }}>
             Check for updates for the Mineplex network here:
             <br />
             <a
               href="https://mineplex.com/"
               target="_blank"
               rel="noreferrer"
-              className="text-orange-600 font-medium hover:underline"
+              className="font-semibold text-white underline decoration-white/70 underline-offset-4"
             >
               https://mineplex.com/
             </a>
           </p>
 
-          <div className="flex justify-center">
-            <div className="relative group w-full max-w-md">
+          <div className="reveal-up mt-10 flex w-full justify-center" style={{ animationDelay: '520ms' }}>
+            <div className="group relative w-full max-w-md">
               <input
                 placeholder="Search any player..."
                 readOnly
                 aria-disabled="true"
-                className="w-full bg-white border border-orange-200 rounded-xl px-5 py-3 shadow-sm cursor-not-allowed focus:outline-none transition"
+                className="w-full cursor-not-allowed rounded-xl border border-white/60 bg-white px-5 py-3 text-zinc-800 shadow-md"
               />
               <div className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
                 Coming soon
               </div>
             </div>
           </div>
+
+          <p className="reveal-up mt-8 max-w-2xl text-orange-100" style={{ animationDelay: '620ms' }}>
+            Interested in contributing? Message @Inpuzah on Discord and mention your interest!
+          </p>
         </div>
+      </section>
+
+      <div className="band-stack relative z-10 mt-10">
+        {bottomSections.map((section, index) => {
+          const isLightText = section.theme.includes('text-white');
+          const isNavyAccent = section.accent === 'navy';
+          const rightAligned = Boolean(section.alignRight);
+
+          const bodyTextClass = isNavyAccent ? 'text-[#1e3a8a]/90' : isLightText ? 'text-white/90' : 'text-zinc-600';
+          const headingTextClass = isNavyAccent ? 'text-[#1e3a8a]' : isLightText ? 'text-white' : 'text-[#e85d0f]';
+          const statusTextClass = isNavyAccent ? 'text-[#1e3a8a]/80' : isLightText ? 'text-white/80' : 'text-zinc-500';
+          const statusDotClass = isNavyAccent ? 'bg-[#1e3a8a]/80' : isLightText ? 'bg-white/90' : 'bg-orange-400';
+
+          return (
+            <section
+              key={section.heading}
+              className={`band-section band-animate ${index % 2 === 0 ? 'band-rise-left' : 'band-rise-right'} ${section.theme}`}
+              style={{ animationDelay: `${index * 140}ms` }}
+            >
+              <div
+                className={`mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-6 md:grid-cols-2 ${
+                  section.reverse ? 'md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1' : ''
+                }`}
+              >
+                <div>
+                  <p className={`text-base ${bodyTextClass}`}>{section.body}</p>
+                </div>
+
+                <div className={rightAligned ? 'md:text-right' : ''}>
+                  <h2 className={`text-4xl font-bold ${headingTextClass}`}>{section.heading}</h2>
+
+                  <div className={`${rightAligned ? 'mt-3 md:justify-end' : 'mt-5'} flex items-center gap-2 text-sm ${statusTextClass}`}>
+                    <div className={`h-2 w-2 rounded-full ${statusDotClass} animate-pulse`} />
+                    Coming Soon
+                  </div>
+
+                  {section.discord ? (
+                    <button
+                      type="button"
+                      aria-disabled="true"
+                      className="discord-btn mt-6 inline-flex cursor-not-allowed items-center gap-3 rounded-xl bg-[#5865F2] px-6 py-3 font-medium text-white"
+                    >
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">◎</span>
+                      Invite Bot (Coming Soon)
+                    </button>
+                  ) : null}
+                </div>
+              </div>
+            </section>
+          );
+        })}
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-        {sections.map((section) => (
-          <div
-            key={section}
-            className="bg-white/90 backdrop-blur border border-orange-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-200"
-          >
-            <h3 className="text-xl font-semibold text-orange-600 mb-3">{section}</h3>
-
-            <p className="text-gray-500 text-sm mb-6">
-              This feature is currently in development and will be available once Mineplex API access is
-              released.
-            </p>
-
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <div className="h-2 w-2 bg-orange-400 rounded-full animate-pulse" />
-              Coming Soon
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 mt-20 mb-10 text-center text-gray-400 text-sm relative z-10">
-        <p className="mb-2">Mineplex stat integration is currently unavailable.</p>
-        <p className="text-orange-600 font-medium">
-          Plexlytics is preparing the infrastructure for future data access.
+      <div className="relative z-10 mx-auto mb-10 mt-10 max-w-6xl px-6 text-center text-sm text-gray-500">
+        <p className="mb-2">© 2026 PlexStats. All rights reserved.</p>
+        <p className="font-medium text-orange-600">
+          PlexStats is not affiliated with Mojang or Mineplex. Mojang and Mineplex are registered trademarks.
         </p>
       </div>
     </div>
