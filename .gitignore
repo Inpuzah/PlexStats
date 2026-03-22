@@ -19,3 +19,4 @@ dist/
 .next/
 coverage/
 *.tsbuildinfo
+.vercel
