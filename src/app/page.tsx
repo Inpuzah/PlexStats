@@ -1,5 +1,5 @@
 export default function HomePage() {
-  const sections = ['Player Profiles', 'Game Stats', 'Leaderboards', 'Match History'];
+  const sections = ['Player Profiles', 'Game Stats', 'Leaderboards'];
 
   return (
     <div className="min-h-screen text-black relative overflow-hidden bg-white">
@@ -14,17 +14,24 @@ export default function HomePage() {
       <div className="relative z-10 border-b border-orange-200 px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur sticky top-0">
         <h1 className="text-xl font-bold tracking-tight text-orange-600">Plexlytics</h1>
 
-        <input
-          placeholder="Search Mineplex player..."
-          className="bg-white border border-orange-200 rounded-lg px-4 py-2 w-64 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition"
-        />
+        <div className="relative group">
+          <input
+            placeholder="Search Mineplex player..."
+            readOnly
+            aria-disabled="true"
+            className="bg-white border border-orange-200 rounded-lg px-4 py-2 w-64 cursor-not-allowed focus:outline-none transition"
+          />
+          <div className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+            Coming soon
+          </div>
+        </div>
       </div>
 
       <div className="relative z-10">
         <div className="max-w-6xl mx-auto px-6 py-24 text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">Plexlytics</h1>
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">plexstats</h1>
 
-          <p className="text-lg text-gray-600 mb-6">Mineplex Analytics Platform</p>
+          <p className="text-lg text-gray-600 mb-6">Mineplex Stats Tracking Platform</p>
 
           <p className="text-gray-500 mb-6 max-w-xl mx-auto">
             Plexlytics is an up-coming stats tracker using Mineplex APIs. Currently in development and
@@ -45,10 +52,17 @@ export default function HomePage() {
           </p>
 
           <div className="flex justify-center">
-            <input
-              placeholder="Search any player..."
-              className="w-full max-w-md bg-white border border-orange-200 rounded-xl px-5 py-3 shadow-sm focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition"
-            />
+            <div className="relative group w-full max-w-md">
+              <input
+                placeholder="Search any player..."
+                readOnly
+                aria-disabled="true"
+                className="w-full bg-white border border-orange-200 rounded-xl px-5 py-3 shadow-sm cursor-not-allowed focus:outline-none transition"
+              />
+              <div className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+                Coming soon
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -72,19 +86,6 @@ export default function HomePage() {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="max-w-4xl mx-auto px-6 mt-20 text-center relative z-10">
-        <h2 className="text-2xl font-semibold mb-4">Be ready when Plexlytics launches</h2>
-
-        <p className="text-gray-500 mb-6">
-          The platform is being built now so that full functionality is available immediately once Mineplex
-          releases API access.
-        </p>
-
-        <button className="px-6 py-3 rounded-xl border border-orange-300 text-orange-600 hover:bg-orange-50 transition">
-          Stay Updated
-        </button>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 mt-20 mb-10 text-center text-gray-400 text-sm relative z-10">
