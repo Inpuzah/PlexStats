@@ -20,3 +20,10 @@ dist/
 coverage/
 *.tsbuildinfo
 .vercel
+
+# Local assistant artifacts
+/memories/
+/.memories/
+/.copilot/
+/.vscode/copilot/
+/.vscode/.copilot/
