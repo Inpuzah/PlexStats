@@ -50,17 +50,14 @@ export default function HomePage() {
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
           <h1 className="text-xl font-bold tracking-tight text-orange-600">PlexStats</h1>
 
-          <div className="group relative">
+          <form action="/search" method="get" className="relative">
             <input
+              name="player"
               placeholder="Search Mineplex player..."
-              readOnly
-              aria-disabled="true"
-              className="w-64 cursor-not-allowed rounded-lg border border-orange-200 bg-white/90 px-4 py-2 shadow-sm"
+              required
+              className="w-64 rounded-lg border border-orange-200 bg-white/90 px-4 py-2 shadow-sm outline-none transition focus:border-orange-400"
             />
-            <div className="pointer-events-none absolute left-1/2 top-full z-40 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-              Coming soon
-            </div>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -89,17 +86,14 @@ export default function HomePage() {
           </p>
 
           <div className="reveal-up mt-10 flex w-full justify-center" style={{ animationDelay: '520ms' }}>
-            <div className="group relative w-full max-w-md">
+            <form action="/search" method="get" className="w-full max-w-md">
               <input
+                name="player"
                 placeholder="Search any player..."
-                readOnly
-                aria-disabled="true"
-                className="w-full cursor-not-allowed rounded-xl border border-white/60 bg-white px-5 py-3 text-zinc-800 shadow-md"
+                required
+                className="w-full rounded-xl border border-white/60 bg-white px-5 py-3 text-zinc-800 shadow-md outline-none transition focus:border-orange-300"
               />
-              <div className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                Coming soon
-              </div>
-            </div>
+            </form>
           </div>
 
           <p className="reveal-up mt-8 max-w-2xl text-orange-100" style={{ animationDelay: '620ms' }}>
