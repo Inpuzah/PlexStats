@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import type { SkinViewer } from 'skinview3d';
 
 type PlayerSkinViewerProps = {
   skinUrl: string;
@@ -44,7 +45,7 @@ export default function PlayerSkinViewer({ skinUrl, username }: PlayerSkinViewer
     }
 
     let disposed = false;
-    let viewer: any = null;
+    let viewer: SkinViewer | null = null;
 
     const init = async () => {
       try {
@@ -97,7 +98,7 @@ export default function PlayerSkinViewer({ skinUrl, username }: PlayerSkinViewer
         await viewer.loadSkin(skinUrl);
         console.log('[PlayerSkinViewer] Skin loaded successfully');
 
-        const playerObject = viewer.playerObject as any;
+        const playerObject: Record<string, { rotation?: Record<string, number> }> = viewer.playerObject;
         if (playerObject.leftArm?.rotation) playerObject.leftArm.rotation.z = -0.32;
         if (playerObject.rightArm?.rotation) playerObject.rightArm.rotation.z = 0.32;
         if (playerObject.leftLeg?.rotation) playerObject.leftLeg.rotation.z = -0.08;
@@ -128,7 +129,7 @@ export default function PlayerSkinViewer({ skinUrl, username }: PlayerSkinViewer
       window.removeEventListener('resize', handleResize);
       viewer?.dispose();
     };
-  }, [skinUrl]);
+  }, [skinUrl, username]);
 
   return (
     <div ref={containerRef} className="relative w-full">
