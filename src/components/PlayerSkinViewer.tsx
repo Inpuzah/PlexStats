@@ -98,7 +98,7 @@ export default function PlayerSkinViewer({ skinUrl, username }: PlayerSkinViewer
         await viewer.loadSkin(skinUrl);
         console.log('[PlayerSkinViewer] Skin loaded successfully');
 
-        const playerObject: Record<string, { rotation?: Record<string, number> }> = viewer.playerObject;
+        const playerObject = viewer.playerObject as unknown as Record<string, { rotation?: Record<string, number> }>;
         if (playerObject.leftArm?.rotation) playerObject.leftArm.rotation.z = -0.32;
         if (playerObject.rightArm?.rotation) playerObject.rightArm.rotation.z = 0.32;
         if (playerObject.leftLeg?.rotation) playerObject.leftLeg.rotation.z = -0.08;
